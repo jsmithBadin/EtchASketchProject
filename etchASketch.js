@@ -7,10 +7,13 @@ function makeBoard(size = 16){
         let j = 0;
         const row = document.createElement("div");
         row.classList.add("row");
-        row.textContent = i;
         mainBoard.appendChild(row);
         // boardTile.setAttribute.("id", "row");
         while (j < size){
+            const tile = document.createElement("div");
+            tile.classList.add("tile");
+            tile.textContent = i * 100 + j;
+            row.appendChild(tile);
             j += 1;
         }
         i += 1;
