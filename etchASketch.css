@@ -1,12 +1,25 @@
 /* This will be the CSS file that formats the etch a sketch webpage */
 
-.mainBoard {
+#screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+
+.reset {
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+}
+
+#mainBoard {
     border: 2px solid #888888;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 640px;
-    width: 640px;
+    max-height: 640px;
+    max-width: 640px;
 }
 
 .row {
@@ -17,7 +30,7 @@
 
 .tile {
     
-    border: 2px solid #888888;
-    height: 40px;
-    width: 40px;
+    border: 1px solid #888888;
+    height: 38px;
+    width: 38px;
 }
