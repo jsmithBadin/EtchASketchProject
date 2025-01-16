@@ -3,15 +3,19 @@
 function makeBoard(size = 16){
     const mainBoard = document.querySelector("#mainBoard");
     let i = 0;
-    console.log(`i = ${i}`);
+    
+    //Size tiles based on board size
     let edgeLength = Math.floor((640 / size) - 2);
     console.log(edgeLength);
     let edgeValue = edgeLength.toString(10)+"px";
+    
+    //generate rows to hold tiles 
     while (i < size){
         let j = 0;
         const row = document.createElement("div");
         row.classList.add("row");
         mainBoard.appendChild(row);
+        // generate the appropriate number of tiles for each row, and size them properly
         while (j < size){
             const tile = document.createElement("div");
             tile.classList.add("tile");
@@ -21,11 +25,11 @@ function makeBoard(size = 16){
             j += 1;
         }
         i += 1;
-        console.log(`Printing row ${i}`);
     }
 }
 
 function resetTriggered(size){
+    // Test to ensure a valid input, if input is valid, clear the old board, generate the new board, and attatch the event listeners
     if (size > 100 || (isNaN(size))) {
         alert("Maximum size is 100, please enter a new size value as a whole number using digits");
     }
@@ -40,6 +44,7 @@ function resetTriggered(size){
     }
 }
 
+// Make initial board
 makeBoard();
 
 // Add hover effect (when cursor enters div, change div background color) ---------------- DONE
