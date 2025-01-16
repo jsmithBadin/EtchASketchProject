@@ -1,4 +1,6 @@
 //This will be the javaScript file that runs my scripting for the Etch-A-Sketch project
+//set color variable to hold color used for highlighting
+let color = "#000000";
 // Add a 16 x 16 array of divs to the mainBoard ----------- DONE
 function makeBoard(size = 16){
     const mainBoard = document.querySelector("#mainBoard");
@@ -6,7 +8,6 @@ function makeBoard(size = 16){
     
     //Size tiles based on board size
     let edgeLength = Math.floor((640 / size) - 2);
-    console.log(edgeLength);
     let edgeValue = edgeLength.toString(10)+"px";
     
     //generate rows to hold tiles 
@@ -38,7 +39,7 @@ function resetTriggered(size){
         document.querySelectorAll(".row").forEach(elem => elem.remove())
         makeBoard(size);
         document.querySelectorAll(".tile").forEach(elem => elem.addEventListener("mouseenter", function(t) {
-            t.target.style.background = "#44cc44";
+            t.target.style.background = color;
         }))
         
     }
@@ -51,7 +52,7 @@ makeBoard();
 // add event listeners.  Because we're adding to ALL elements of a class, we need to use querySelectorAll AND
 // forEach in combination
 document.querySelectorAll(".tile").forEach(elem => elem.addEventListener("mouseenter", function(t) {
-    t.target.style.background = "#44cc44";
+    t.target.style.background = color;
 }))
 
 
@@ -59,3 +60,13 @@ document.querySelectorAll(".tile").forEach(elem => elem.addEventListener("mousee
 // (i.e. make a new nxn div board in the same mainBoard size)
 const btn = document.querySelector(".reset");
 btn.addEventListener("click", () => resetTriggered(prompt("How many squares should the grid hold?  Please enter the number of rows or columns you would like:")));
+
+// add event listeners to change the color based on button
+const red = document.querySelector("#red");
+red.addEventListener("click", () => {color = "#cc4444"});
+const black = document.querySelector("#black");
+black.addEventListener("click", () => {color = "#000000"});
+const green = document.querySelector("#green");
+green.addEventListener("click", () => {color = "#44cc44"});
+const blue = document.querySelector("#blue");
+blue.addEventListener("click", () => {color = "#4444cc"});
