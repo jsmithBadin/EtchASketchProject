@@ -4,6 +4,9 @@ function makeBoard(size = 16){
     const mainBoard = document.querySelector("#mainBoard");
     let i = 0;
     console.log(`i = ${i}`);
+    let edgeLength = Math.floor((640 / size) - 2);
+    console.log(edgeLength);
+    let edgeValue = edgeLength.toString(10)+"px";
     while (i < size){
         let j = 0;
         const row = document.createElement("div");
@@ -12,7 +15,8 @@ function makeBoard(size = 16){
         while (j < size){
             const tile = document.createElement("div");
             tile.classList.add("tile");
-            //tile.style.height(38)
+            tile.style.height = edgeValue;
+            tile.style.width = edgeValue;
             row.appendChild(tile);
             j += 1;
         }
