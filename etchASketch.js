@@ -22,7 +22,14 @@ function makeBoard(size = 16){
 }
 
 makeBoard();
-// Add a 16 x 16 array of divs to the mainBoard
+
+// add event listeners.  Because we're adding to ALL elements of a class, we need to use querySelectorAll AND
+// forEach in combination
+document.querySelectorAll(".tile").forEach(elem => elem.addEventListener("mouseenter", function(t) {
+    t.target.style.background = "#44cc44";
+}))
+
+// Add a 16 x 16 array of divs to the mainBoard ----------- DONE
 
 // Add hover effect (when cursor enters div, change div background color)
 
