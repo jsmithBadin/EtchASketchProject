@@ -11,11 +11,21 @@ function makeBoard(size = 16){
         while (j < size){
             const tile = document.createElement("div");
             tile.classList.add("tile");
+            //tile.style.height()
             row.appendChild(tile);
             j += 1;
         }
         i += 1;
         console.log(`Printing row ${i}`);
+    }
+}
+
+function resetTriggered(size){
+    if (size > 100 || !(Number.isInteger(size))) {
+        alert("Maximum size is 100, please enter a new size value as a whole number using digits");
+    }
+    else {
+        makeBoard(size);
     }
 }
 
