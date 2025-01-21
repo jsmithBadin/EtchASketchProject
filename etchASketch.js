@@ -49,14 +49,10 @@ function resetTriggered(size){
                 let a = Math.floor(16 * Math.random());
                 let b = Math.floor(16 * Math.random());
                 let c = Math.floor(16 * Math.random());
-                if (a < 4){
-                    a = a + 4;
-                }
-                if (b < 4){
-                    b = b + 4;
-                }
-                if (c < 4){
-                    c = c + 4;
+                while (a + b + c > 30){
+                    a = Math.floor(16 * Math.random());
+                    b = Math.floor(16 * Math.random());
+                    c = Math.floor(16 * Math.random());
                 }
                 color = "#" + a.toString(16) + b.toString(16) + c.toString(16);
                 t.target.style.background = color;
@@ -78,6 +74,11 @@ document.querySelectorAll(".tile").forEach(elem => elem.addEventListener("mousee
         let a = Math.floor(16 * Math.random());
         let b = Math.floor(16 * Math.random());
         let c = Math.floor(16 * Math.random());
+            while (a + b + c > 30){
+                a = Math.floor(16 * Math.random());
+                b = Math.floor(16 * Math.random());
+                c = Math.floor(16 * Math.random());
+            }
         color = "#" + a.toString(16) + b.toString(16) + c.toString(16);
         t.target.style.background = color;
         }
