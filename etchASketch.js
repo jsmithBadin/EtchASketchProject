@@ -3,6 +3,7 @@
 let color = "#000000";
 //set mode variable to hold whether highlighter is fixed or random
 let mode = "normal";
+let opacityMode = 0;
 
 // Add a 16 x 16 array of divs to the mainBoard ----------- DONE
 function makeBoard(size = 16){
@@ -42,6 +43,12 @@ function resetTriggered(size){
         document.querySelectorAll(".row").forEach(elem => elem.remove())
         makeBoard(size);
         document.querySelectorAll(".tile").forEach(elem => elem.addEventListener("mouseenter", function(t) {
+            if (opacityMode % 2 == 1){
+                t.target.style.opacity = (Number(t.target.style.opacity) + .1);
+                console.log(t.target.style.opacity);
+            } else {
+                t.target.style.opacity = .8;
+            }
             if (mode === "normal"){
                 t.target.style.background = color;
                 console.log(mode)
@@ -68,6 +75,12 @@ makeBoard();
 // add event listeners.  Because we're adding to ALL elements of a class, we need to use querySelectorAll AND
 // forEach in combination
 document.querySelectorAll(".tile").forEach(elem => elem.addEventListener("mouseenter", function(t) {
+    if (opacityMode % 2 == 1){
+        t.target.style.opacity = (Number(t.target.style.opacity) + .1);
+        console.log(t.target.style.opacity);
+    } else {
+        t.target.style.opacity = .8;
+    }
     if (mode === "normal"){
         t.target.style.background = color;
     } else {
@@ -103,4 +116,8 @@ blue.addEventListener("click", () => {color = "#0000cc"; mode = "normal";});
 
 // add event listener to put the highlight into random mode.
 const random = document.querySelector("#random");
-random.addEventListener("click", () => {mode = "random"; console.log(mode)});
+random.addEventListener("click", () => {mode = "random";});
+
+// add event listener to put the etch-a-sketch into changing opacity mode
+const changeOpacity = document.querySelector("#opacityChange");
+changeOpacity.addEventListener("click", () => {opacityMode += 1; console.log(opacityMode)});
