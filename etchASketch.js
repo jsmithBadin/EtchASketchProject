@@ -45,13 +45,11 @@ function resetTriggered(size){
         document.querySelectorAll(".tile").forEach(elem => elem.addEventListener("mouseenter", function(t) {
             if (opacityMode % 2 == 1){
                 t.target.style.opacity = (Number(t.target.style.opacity) + .1);
-                console.log(t.target.style.opacity);
             } else {
                 t.target.style.opacity = .8;
             }
             if (mode === "normal"){
                 t.target.style.background = color;
-                console.log(mode)
             } else {
                 let a = Math.floor(16 * Math.random());
                 let b = Math.floor(16 * Math.random());
@@ -77,7 +75,6 @@ makeBoard();
 document.querySelectorAll(".tile").forEach(elem => elem.addEventListener("mouseenter", function(t) {
     if (opacityMode % 2 == 1){
         t.target.style.opacity = (Number(t.target.style.opacity) + .1);
-        console.log(t.target.style.opacity);
     } else {
         t.target.style.opacity = .8;
     }
@@ -120,4 +117,4 @@ random.addEventListener("click", () => {mode = "random";});
 
 // add event listener to put the etch-a-sketch into changing opacity mode
 const changeOpacity = document.querySelector("#opacityChange");
-changeOpacity.addEventListener("click", () => {opacityMode += 1; console.log(opacityMode)});
+changeOpacity.addEventListener("click", () => {opacityMode += 1});
